@@ -1,6 +1,7 @@
 # Team Profile Generator Using Node.js and Jest
 
 ## Description
+![Node Image]()
 
 ## User Story
 ```
