@@ -2,6 +2,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
+let teamArray = []
 
 function start() {
 
@@ -15,7 +16,23 @@ function start() {
                 message: "What type of employee do you want to add?",
                 choices: ["Manager", "Engineer", "Intern", "I do not want to add anymore employees"]
             }
-        ])
+        ]).then (answers => {
+            switch (answers.addEmployeeType) {
+                case "Manager": {
+                    choiceManager();
+                    break;
+                }
+                case "Engineer": {
+                    choiceEngineer();
+                    break;
+                }
+                case "Intern": {
+                    choiceIntern();
+                    break;
+                }
+                default:
+            }  
+        })
 
     }
     function choiceManager() {
@@ -42,8 +59,11 @@ function start() {
                 name: "managerOfficeNumber",
                 message: "What is the manager's office number?"
             }
-
-        ])
+        ]).then(answers => {
+            const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber);
+            teamArray.push(manager);
+            makeTeam();
+        })
     }
 
     function choiceEngineer() {
@@ -70,8 +90,11 @@ function start() {
                 name: "engineerGitHub",
                 message: "What is the engineer's Github username?"
             }
-
-        ])
+        ]) .then(answers => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGitHub);
+            teamArray.push(engineer);
+            makeTeam();
+        })
     }
 
     function choiceIntern() {
@@ -98,8 +121,11 @@ function start() {
                 name: "internSchool",
                 message: "What school does the intern go to?"
             }
-
-        ])
+        ]).then(answers => {
+            const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
+            teamArray.push(intern);
+            makeTeam();
+        })
     }
 };
 
