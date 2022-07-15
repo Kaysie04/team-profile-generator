@@ -1,19 +1,18 @@
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
-const blueprint = require("./src/blueprint");
-const fs = require("fs");
-const path = require("path")
-const distDir = path.resolve(__dirname, "dist")
-const distPath = path.join(distDir, "index.html")
+import Manager from "./lib/Manager.mjs";
+import Engineer from "./lib/Engineer.mjs";
+import Intern from "./lib/Intern.mjs";
+import { prompt } from "inquirer";
+import blueprint from "./src/blueprint";
+import { writeFileSync } from "fs";
+import { resolve, join } from "path";
+const distDir = resolve(__dirname, "dist")
+const distPath = join(distDir, "index.html")
 let teamArray = []
 
 function start() {
     console.log("node is running")
     function makeTeam () {
-        return inquirer
-        .prompt ([
+        return prompt ([
             {
                 type: "list",
                 name: "addEmployeeType",
@@ -40,8 +39,7 @@ function start() {
 
     }
     function choiceManager() {
-        return inquirer
-        .prompt([
+        return prompt([
             {
                 type: "input",
                 name: "managerName",
@@ -71,8 +69,7 @@ function start() {
     }
 
     function choiceEngineer() {
-        return inquirer
-        .prompt([
+        return prompt([
             {
                 type: "input",
                 name: "engineerName",
@@ -102,8 +99,7 @@ function start() {
     }
 
     function choiceIntern() {
-        return inquirer
-        .prompt([
+        return prompt([
             {
                 type: "input",
                 name: "internName",
@@ -135,7 +131,7 @@ function start() {
 
 function createHTML () {
     console.log("Your team profiles have been created!")
-    fs.writeFileSync(distPath, blueprint(teamArray))
+    writeFileSync(distPath, blueprint(teamArray))
 }
 start();
 

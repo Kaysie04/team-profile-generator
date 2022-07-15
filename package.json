@@ -4,7 +4,8 @@
   "description": "## Description ![Node Image]()",
   "main": "index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "type": "module"
   },
   "scripts": {
     "test": "jest"
