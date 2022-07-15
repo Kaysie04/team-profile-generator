@@ -2,11 +2,14 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
+const blueprint = require("./src/blueprint");
+const fs = require("fs");
+const path = require("path")
+const distDir = path.resolve(__dirname, "dist")
+const distPath = path.join(distDir, "index.html")
 let teamArray = []
 
 function start() {
-
-
     function makeTeam () {
         return inquirer
         .prompt ([
@@ -129,4 +132,9 @@ function start() {
     }
 };
 
+function createHTML () {
+    console.log("Your team profiles have been created!")
+    fs.writeFileSync(distPath, blueprint(teamArray))
+}
 start();
+
