@@ -10,6 +10,7 @@ const distPath = path.join(distDir, "index.html")
 let teamArray = []
 
 function start() {
+    console.log("node is running")
     function makeTeam () {
         return inquirer
         .prompt ([
