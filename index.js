@@ -1,15 +1,15 @@
-import Manager from "./lib/Manager.mjs";
-import Engineer from "./lib/Engineer.mjs";
-import Intern from "./lib/Intern.mjs";
-import { prompt } from "inquirer";
-import blueprint from "./src/blueprint";
-import { writeFileSync } from "fs";
-import { resolve, join } from "path";
+const Manager = require( "./lib/Manager.js");
+const Engineer = require ( "./lib/Engineer.js");
+const Intern = require ("./lib/Intern.js");
+const {prompt} = require ("inquirer");
+const blueprint = require ("./src/blueprint");
+const { writeFileSync  }= require ("fs");
+const { resolve, join } = require ("path");
 const distDir = resolve(__dirname, "dist")
 const distPath = join(distDir, "index.html")
 let teamArray = []
 
-function start() {
+//function start() {
     console.log("node is running")
     function makeTeam () {
         return prompt ([
@@ -127,11 +127,11 @@ function start() {
             makeTeam();
         })
     }
-};
+//};
 
 function createHTML () {
     console.log("Your team profiles have been created!")
     writeFileSync(distPath, blueprint(teamArray))
 }
-start();
+makeTeam();
 
