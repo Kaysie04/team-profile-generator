@@ -1,7 +1,12 @@
 # Team Profile Generator Using Node.js and Jest
 
 ## Description
-![Node Image]()
+The application generates a team profile based on user input using Inquirer. The newly built team profile is then displayed on a generated HTML page. The application also involves OOP and TDD using Jest.
+
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
 
 ## User Story
 ```
@@ -38,17 +43,25 @@ THEN I exit the application, and the HTML is generated
 npm init
 ```
 ```
-npm inquirer
+npm i inquirer
+```
+
+```
+npm i jest
 ```
 
 ## Usage 
+
+To test the application type the following into your terminal
+```
+npm run test
+```
+
 Type in the following command and answer the prompt questions.
 
 ```
 node index.js
 ```
-
-## Functionality of Application
 Click [here]() for a demonstration video.
 
 ## License
