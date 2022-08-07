@@ -129,8 +129,6 @@ let teamArray = []
 
     makeTeam();
 
-    
-
     // function createHTML () {
     //     console.log("Your team profiles have been created!")
     //     fs.writeFileSync(distPath, createTeam(teamArray), "UTF-8")

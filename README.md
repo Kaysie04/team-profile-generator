@@ -62,7 +62,7 @@ Type in the following command and answer the prompt questions.
 ```
 node index.js
 ```
-Click [here]() for a demonstration video.
+Click [here](https://watch.screencastify.com/v/rKx3XqNjeCF1x3kJfda3) for a demonstration video.
 
 ## License
 MIT
