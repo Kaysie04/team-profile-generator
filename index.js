@@ -1,18 +1,17 @@
 const Manager = require( "./lib/Manager.js");
-const Engineer = require ( "./lib/Engineer.js");
-const Intern = require ("./lib/Intern.js");
-const {prompt} = require ("inquirer");
-const blueprint = require ("./src/blueprint");
-const { writeFileSync  }= require ("fs");
-const { resolve, join } = require ("path");
-const distDir = resolve(__dirname, "dist")
-const distPath = join(distDir, "index.html")
+const Engineer = require( "./lib/Engineer.js");
+const Intern = require("./lib/Intern.js");
+const inquirer = require("inquirer");
+const fs = require ("fs");
+const path  = require ("path");
+const distDir = path.resolve(__dirname, "dist");
+const distPath = path.join(distDir, "index.html");
+const createTeam= require ("./src/blueprint.js");
 let teamArray = []
 
-//function start() {
-    console.log("node is running")
-    function makeTeam () {
-        return prompt ([
+   
+    const makeTeam = () => {
+        return inquirer.prompt ([
             {
                 type: "list",
                 name: "addEmployeeType",
@@ -38,8 +37,8 @@ let teamArray = []
         })
 
     }
-    function choiceManager() {
-        return prompt([
+    const choiceManager = () => {
+         return inquirer.prompt([
             {
                 type: "input",
                 name: "managerName",
@@ -68,8 +67,8 @@ let teamArray = []
         })
     }
 
-    function choiceEngineer() {
-        return prompt([
+    const choiceEngineer = () => {
+        return inquirer.prompt([
             {
                 type: "input",
                 name: "engineerName",
@@ -98,8 +97,8 @@ let teamArray = []
         })
     }
 
-    function choiceIntern() {
-        return prompt([
+    const choiceIntern = () => {
+         return inquirer.prompt([
             {
                 type: "input",
                 name: "internName",
@@ -127,11 +126,19 @@ let teamArray = []
             makeTeam();
         })
     }
-//};
 
-function createHTML () {
-    console.log("Your team profiles have been created!")
-    writeFileSync(distPath, blueprint(teamArray))
-}
-makeTeam();
+    makeTeam();
+
+    
+
+    // function createHTML () {
+    //     console.log("Your team profiles have been created!")
+    //     fs.writeFileSync(distPath, createTeam(teamArray), "UTF-8")
+    // }
+
+    // createHTML();
+
+
+
+
 
